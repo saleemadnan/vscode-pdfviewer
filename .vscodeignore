@@ -1,9 +1,15 @@
 .vscode/**
 .vscode-test/**
+.github/**
 out/test/**
 test/**
 src/**
 **/*.map
 .gitignore
+.editorconfig
+.eslintrc.json
+.eslintignore
 tsconfig.json
 vsc-extension-quickstart.md
+CHANGELOG.md
+lib/web/debugger.*

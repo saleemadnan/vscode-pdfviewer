@@ -54,8 +54,8 @@ npm run compile
 
 1. Download the latest [Prebuilt (older browsers)](https://mozilla.github.io/pdf.js/getting_started/#download) release.
 2. Extract the ZIP file.
-3. Overwrite `./lib/*` with the extracted directories.
-   - If `lib/web/viewer.html` has changed, apply those changes to the HTML template in `src/pdfPreview.ts`.
+3. Overwrite `./lib/*` with the extracted directories (skip `lib/web/viewer.html`, `lib/web/debugger.*`, and `lib/**/*.map` — they are not used).
+   - If the viewer HTML structure in the new PDF.js release has changed, apply those changes to the HTML template in `src/pdfPreview.ts`.
 4. Remove the sample PDF:
    - Delete `compressed.tracemonkey-pldi-09.pdf` from `lib/web/`.
    - In `lib/web/viewer.js`, clear the `defaultUrl` value:

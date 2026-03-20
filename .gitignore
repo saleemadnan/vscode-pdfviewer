@@ -10,3 +10,4 @@ yarn-error.log*
 *.tgz
 coverage/
 .nyc_output/
+lib/**/*.map
