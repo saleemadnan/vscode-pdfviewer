@@ -25,12 +25,14 @@ export class PdfCustomProvider implements vscode.CustomReadonlyEditorProvider {
     this._previews.add(preview);
     this.setActivePreview(preview);
 
-    webviewEditor.onDidDispose(() => {
+    const disposeListener = webviewEditor.onDidDispose(() => {
+      disposeListener.dispose();
+      stateListener.dispose();
       preview.dispose();
       this._previews.delete(preview);
     });
 
-    webviewEditor.onDidChangeViewState(() => {
+    const stateListener = webviewEditor.onDidChangeViewState(() => {
       if (webviewEditor.active) {
         this.setActivePreview(preview);
       } else if (this._activePreview === preview && !webviewEditor.active) {
@@ -39,7 +41,7 @@ export class PdfCustomProvider implements vscode.CustomReadonlyEditorProvider {
     });
   }
 
-  public get activePreview(): PdfPreview {
+  public get activePreview(): PdfPreview | undefined {
     return this._activePreview;
   }
 

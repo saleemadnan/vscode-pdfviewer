@@ -106,6 +106,7 @@ export class PdfPreview extends Disposable {
     const config = vscode.workspace.getConfiguration('pdf-preview');
     const settings = {
       cMapUrl: resolveAsUri('lib', 'web', 'cmaps/').toString(),
+      standardFontDataUrl: resolveAsUri('lib', 'web', 'standard_fonts/').toString(),
       path: docPath.toString(),
       defaults: {
         cursor: config.get('default.cursor') as string,
